@@ -16,5 +16,9 @@
   "bugs": {
     "url": "https://github.com/Mesh1313/nodejsrestapi/issues"
   },
-  "homepage": "https://github.com/Mesh1313/nodejsrestapi#readme"
+  "homepage": "https://github.com/Mesh1313/nodejsrestapi#readme",
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "express": "^4.16.2"
+  }
 }

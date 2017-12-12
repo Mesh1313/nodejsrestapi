@@ -13,7 +13,7 @@ router.get('/tasks', function(req, res) {
 	);
 });
 
-router.get('/tasks/create', function(req, res) {
+router.post('/tasks', function(req, res) {
 	var newTask = {
 		title: 'New Task 1',
 		description: 'Some description for task 1'

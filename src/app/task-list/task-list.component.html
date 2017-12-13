@@ -1,3 +1,5 @@
-<p>
-  task-list works!
-</p>
+<ul>
+	<li *ngFor="let taskObj of tasks">
+		<app-task-item [task]="taskObj"></app-task-item>
+	</li>
+</ul>

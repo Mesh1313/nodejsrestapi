@@ -8,13 +8,17 @@ import { TaskService } from '../services/task.service';
 	styleUrls: ['./dashboard.component.css']
 })
 export class DashboardComponent implements OnInit {
-	public tasks:Array<Task> = [];
+	public tasksCollection:Array<Task> = [];
 
 	constructor(private taskService:TaskService) { }
 
 	ngOnInit() {
 		this.taskService.getTasks().subscribe((tasks) => {
-			console.log(tasks);
+			for(let task of tasks) {
+				let parsedDate = new Date(task.timeStamp);
+				task.date = `${(parsedDate.getMonth() + 1)}/${parsedDate.getDate()}/${parsedDate.getFullYear()}`;
+				this.tasksCollection.push(task);
+			}
 		});
 	}
 

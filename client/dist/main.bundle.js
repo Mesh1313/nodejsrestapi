@@ -82,7 +82,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/app.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<router-outlet></router-outlet>\r\n\r\n"
+module.exports = "<router-outlet></router-outlet>\n\n"
 
 /***/ }),
 
@@ -126,17 +126,19 @@ var AppComponent = (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__("../../../core/esm5/core.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_http__ = __webpack_require__("../../../http/esm5/http.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__app_routing_module__ = __webpack_require__("../../../../../src/app/app-routing.module.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__app_component__ = __webpack_require__("../../../../../src/app/app.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__dashboard_dashboard_component__ = __webpack_require__("../../../../../src/app/dashboard/dashboard.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__task_list_task_list_component__ = __webpack_require__("../../../../../src/app/task-list/task-list.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__task_item_task_item_component__ = __webpack_require__("../../../../../src/app/task-item/task-item.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__services_task_service__ = __webpack_require__("../../../../../src/app/services/task.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__angular_forms__ = __webpack_require__("../../../forms/esm5/forms.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__app_component__ = __webpack_require__("../../../../../src/app/app.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__dashboard_dashboard_component__ = __webpack_require__("../../../../../src/app/dashboard/dashboard.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__task_list_task_list_component__ = __webpack_require__("../../../../../src/app/task-list/task-list.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__task_item_task_item_component__ = __webpack_require__("../../../../../src/app/task-item/task-item.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__services_task_service__ = __webpack_require__("../../../../../src/app/services/task.service.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+
 
 
 
@@ -153,20 +155,22 @@ var AppModule = (function () {
         Object(__WEBPACK_IMPORTED_MODULE_1__angular_core__["I" /* NgModule */])({
             declarations: [
                 __WEBPACK_IMPORTED_MODULE_3__app_routing_module__["a" /* APP_ROUTED_COMPONENTS */],
-                __WEBPACK_IMPORTED_MODULE_4__app_component__["a" /* AppComponent */],
-                __WEBPACK_IMPORTED_MODULE_5__dashboard_dashboard_component__["a" /* DashboardComponent */],
-                __WEBPACK_IMPORTED_MODULE_6__task_list_task_list_component__["a" /* TaskListComponent */],
-                __WEBPACK_IMPORTED_MODULE_7__task_item_task_item_component__["a" /* TaskItemComponent */]
+                __WEBPACK_IMPORTED_MODULE_5__app_component__["a" /* AppComponent */],
+                __WEBPACK_IMPORTED_MODULE_6__dashboard_dashboard_component__["a" /* DashboardComponent */],
+                __WEBPACK_IMPORTED_MODULE_7__task_list_task_list_component__["a" /* TaskListComponent */],
+                __WEBPACK_IMPORTED_MODULE_8__task_item_task_item_component__["a" /* TaskItemComponent */]
             ],
             imports: [
                 __WEBPACK_IMPORTED_MODULE_3__app_routing_module__["b" /* AppRoutingModule */],
+                __WEBPACK_IMPORTED_MODULE_4__angular_forms__["b" /* FormsModule */],
+                __WEBPACK_IMPORTED_MODULE_4__angular_forms__["c" /* ReactiveFormsModule */],
                 __WEBPACK_IMPORTED_MODULE_2__angular_http__["b" /* HttpModule */],
                 __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__["a" /* BrowserModule */]
             ],
             providers: [
-                __WEBPACK_IMPORTED_MODULE_8__services_task_service__["a" /* TaskService */]
+                __WEBPACK_IMPORTED_MODULE_9__services_task_service__["a" /* TaskService */]
             ],
-            bootstrap: [__WEBPACK_IMPORTED_MODULE_4__app_component__["a" /* AppComponent */]]
+            bootstrap: [__WEBPACK_IMPORTED_MODULE_5__app_component__["a" /* AppComponent */]]
         })
     ], AppModule);
     return AppModule;
@@ -184,7 +188,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, "", ""]);
+exports.push([module.i, "label,\r\ninput {\r\n\tvertical-align: top;\r\n}", ""]);
 
 // exports
 
@@ -197,7 +201,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/dashboard/dashboard.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<h2>Tasks</h2>\r\n<app-task-list [tasks]=\"tasksCollection\"></app-task-list>"
+module.exports = "<h2>Tasks</h2>\n<form [formGroup]=\"taskForm\" (ngSubmit)=\"onSubmit(taskForm)\" novalidate>\n\t<div>\n\t\t<label>Title: </label>\n\t\t<input type=\"text\" formControlName=\"title\">\t\n\t</div>\n\t\n\t<div>\n\t\t<label>Description: </label>\n\t \t<textarea name=\"\" id=\"\" cols=\"30\" rows=\"10\" formControlName=\"description\"></textarea>\t\n\t</div>\n\t<button type=\"submit\">Add Task Test</button>\n</form>\n\n<app-task-list [tasks]=\"tasksCollection\"></app-task-list>\n"
 
 /***/ }),
 
@@ -207,7 +211,8 @@ module.exports = "<h2>Tasks</h2>\r\n<app-task-list [tasks]=\"tasksCollection\"><
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return DashboardComponent; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/esm5/core.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__services_task_service__ = __webpack_require__("../../../../../src/app/services/task.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_forms__ = __webpack_require__("../../../forms/esm5/forms.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__services_task_service__ = __webpack_require__("../../../../../src/app/services/task.service.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -219,9 +224,11 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 
 
+
 var DashboardComponent = (function () {
-    function DashboardComponent(taskService) {
+    function DashboardComponent(taskService, fb) {
         this.taskService = taskService;
+        this.fb = fb;
         this.tasksCollection = [];
     }
     DashboardComponent.prototype.ngOnInit = function () {
@@ -231,8 +238,24 @@ var DashboardComponent = (function () {
                 var task = tasks_1[_i];
                 var parsedDate = new Date(task.timeStamp);
                 task.date = (parsedDate.getMonth() + 1) + "/" + parsedDate.getDate() + "/" + parsedDate.getFullYear();
-                _this.tasksCollection.push(task);
+                _this.tasksCollection.unshift(task);
             }
+        });
+        this.taskForm = this.fb.group({
+            title: ['', [__WEBPACK_IMPORTED_MODULE_1__angular_forms__["d" /* Validators */].required]],
+            description: ['', [__WEBPACK_IMPORTED_MODULE_1__angular_forms__["d" /* Validators */].required]]
+        });
+    };
+    DashboardComponent.prototype.onSubmit = function (taskForm) {
+        var _this = this;
+        var newTask;
+        if (!taskForm.valid) {
+            return;
+        }
+        newTask = taskForm.value;
+        this.taskService.addTask(newTask).subscribe(function (task) {
+            console.log(task);
+            _this.tasksCollection.unshift(task);
         });
     };
     DashboardComponent = __decorate([
@@ -241,7 +264,8 @@ var DashboardComponent = (function () {
             template: __webpack_require__("../../../../../src/app/dashboard/dashboard.component.html"),
             styles: [__webpack_require__("../../../../../src/app/dashboard/dashboard.component.css")]
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__services_task_service__["a" /* TaskService */]])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_2__services_task_service__["a" /* TaskService */],
+            __WEBPACK_IMPORTED_MODULE_1__angular_forms__["a" /* FormBuilder */]])
     ], DashboardComponent);
     return DashboardComponent;
 }());
@@ -288,12 +312,17 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var TaskService = (function () {
     function TaskService(http) {
         this.http = http;
+        this.apiPath = '/api/v1';
+        this.tasksEndpintPath = this.apiPath + "/tasks";
     }
     TaskService.prototype.getTasks = function () {
-        return this.http.get('/api/v1/tasks')
+        return this.http.get(this.tasksEndpintPath)
             .map(function (data) { return data.json(); });
     };
-    TaskService.prototype.createTask = function (task) { };
+    TaskService.prototype.addTask = function (task) {
+        return this.http.post(this.tasksEndpintPath, task)
+            .map(function (data) { return data.json(); });
+    };
     TaskService = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["A" /* Injectable */])(),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__angular_http__["a" /* Http */]])
@@ -326,7 +355,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/task-item/task-item.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<p>\r\n  {{task.title}}\r\n</p>\r\n<p>\r\n  {{task.description}}\r\n</p>\r\n<p>\r\n  {{task.date}}\r\n</p>\r\n"
+module.exports = "<p>\n  {{task.title}}\n</p>\n<p>\n  {{task.description}}\n</p>\n<p>\n  {{task.date}}\n</p>\n"
 
 /***/ }),
 
@@ -393,7 +422,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/task-list/task-list.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<ul>\r\n\t<li *ngFor=\"let taskObj of tasks\">\r\n\t\t<app-task-item [task]=\"taskObj\"></app-task-item>\r\n\t</li>\r\n</ul>\r\n"
+module.exports = "<ul>\n\t<li *ngFor=\"let taskObj of tasks\">\n\t\t<app-task-item [task]=\"taskObj\"></app-task-item>\n\t</li>\n</ul>\n"
 
 /***/ }),
 
@@ -469,7 +498,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 
 if (__WEBPACK_IMPORTED_MODULE_3__environments_environment__["a" /* environment */].production) {
-    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_12" /* enableProdMode */])();
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_13" /* enableProdMode */])();
 }
 Object(__WEBPACK_IMPORTED_MODULE_1__angular_platform_browser_dynamic__["a" /* platformBrowserDynamic */])().bootstrapModule(__WEBPACK_IMPORTED_MODULE_2__app_app_module__["a" /* AppModule */])
     .catch(function (err) { return console.log(err); });

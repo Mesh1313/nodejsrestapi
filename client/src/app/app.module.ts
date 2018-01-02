@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpModule } from '@angular/http';
 import { AppRoutingModule, APP_ROUTED_COMPONENTS } from './app-routing.module';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
@@ -21,6 +22,8 @@ import { TaskService } from './services/task.service';
   ],
   imports: [
     AppRoutingModule,
+    FormsModule,
+    ReactiveFormsModule,
     HttpModule,
     BrowserModule
   ],

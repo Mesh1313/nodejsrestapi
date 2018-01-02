@@ -1,0 +1,15 @@
+<h2>Tasks</h2>
+<form [formGroup]="taskForm" (ngSubmit)="onSubmit(taskForm)" novalidate>
+	<div>
+		<label>Title: </label>
+		<input type="text" formControlName="title">	
+	</div>
+	
+	<div>
+		<label>Description: </label>
+	 	<textarea name="" id="" cols="30" rows="10" formControlName="description"></textarea>	
+	</div>
+	<button type="submit">Add Task Test</button>
+</form>
+
+<app-task-list [tasks]="tasksCollection"></app-task-list>

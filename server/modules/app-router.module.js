@@ -5,6 +5,7 @@ var taskDataAccess = require('./task-data-access.module');
 router.get('/tasks', function(req, res) {
 	taskDataAccess.getTasks(
 		function(tasks) {
+			console.log(tasks);
 			res.status(200).json(tasks);
 		},
 		function(err) {
@@ -14,10 +15,8 @@ router.get('/tasks', function(req, res) {
 });
 
 router.post('/tasks', function(req, res) {
-	var newTask = {
-		title: 'New Task 1',
-		description: 'Some description for task 1'
-	};
+	var newTask = req.body;
+
 	taskDataAccess.addTask(newTask,
 		function(task) {
 			res.status(200).json(task);
